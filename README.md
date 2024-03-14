@@ -1,6 +1,4 @@
-# ADS(Autonomous Driving Systems) Project
-
-## Perception
+# Localization
 
 This project will cover the following contents.
 

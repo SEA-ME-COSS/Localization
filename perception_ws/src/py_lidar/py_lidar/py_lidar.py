@@ -35,7 +35,7 @@ class LidarPublisher(Node):
         self.msg = LaserScan()
 
         if self.laser.doProcessSimple(self.scan):
-            self.msg.header.frame_id = "map"                               # string     # Transform frame with which this data is associated
+            self.msg.header.frame_id = "laser"                             # string     # Transform frame with which this data is associated
             self.msg.angle_min = self.scan.config.min_angle                # float32    # Start angle of the scan [rad]
             self.msg.angle_max = self.scan.config.max_angle                # float32    # End angle of the scan [rad]
             self.msg.range_min = self.scan.config.min_range                # float32    # Minimum range value [m]

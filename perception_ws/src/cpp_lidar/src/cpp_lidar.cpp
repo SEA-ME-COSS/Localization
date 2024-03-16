@@ -51,7 +51,7 @@ class LidarPublisher : public rclcpp::Node
 
       if(laser.doProcessSimple(scan))
       {
-        msg.header.frame_id = "map";
+        msg.header.frame_id = "laser";
         msg.angle_min = scan.config.min_angle;
         msg.angle_max = scan.config.max_angle;
         msg.range_min = scan.config.min_range;

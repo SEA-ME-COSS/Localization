@@ -9,7 +9,7 @@ import ydlidar
 class LidarPublisher(Node):
     def __init__(self):
         super().__init__('lidar_pub_node')
-        self.publisher_ = self.create_publisher(LaserScan, 'lidar_data', 10)
+        self.publisher_ = self.create_publisher(LaserScan, 'scan', 10)
         self.timer_ = self.create_timer(0.2, self.callback)  # [s]
 
         ydlidar.os_init()

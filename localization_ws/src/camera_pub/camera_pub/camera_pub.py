@@ -12,7 +12,7 @@ from cv_bridge import CvBridge
 class CameraPublisher(Node):
     def __init__(self):
         super().__init__('camera_pub_node')
-        self.publisher_ = self.create_publisher(Image, 'camera_data', 10)
+        self.publisher_ = self.create_publisher(Image, 'image', 10)
         self.timer_ = self.create_timer(0.05, self.callback)  # [s]
 
         self.config = rs.config()

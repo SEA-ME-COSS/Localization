@@ -40,6 +40,10 @@ sudo nano /etc/netplan/50-cloud-init.yaml
 sudo netplan apply
 ```
 
+## ROS2 msg type
+- [TFMessage](https://docs.ros.org/en/melodic/api/tf2_msgs/html/msg/TFMessage.html)
+- [Odometry](https://docs.ros2.org/foxy/api/nav_msgs/msg/Odometry.html)
+
 ## References
 
 - [YDLIDAR](https://github.com/YDLIDAR)

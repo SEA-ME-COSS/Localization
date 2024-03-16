@@ -30,6 +30,7 @@ ssh team5@192.168.0.110 -Y
 pw = ' '
 
 # launch slam toolbox
+cd /opt/ros/foxy/share/slam_toolbox/config
 ros2 launch slam_toolbox online_async_launch.py
 
 # check camera connection

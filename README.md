@@ -6,7 +6,6 @@ This project will cover the following contents.
 |-------------------|-------------------------|--------------------------|
 | **H/W Sensor**    | LiDAR (YDLIDAR X4)      | Scan & Localization      |
 | **H/W Sensor**    | RGBD (RealSense D435)   | Vision                   |
-| **S/W Processor** | YOLO (v8s)              | Detection & Segmentation |
 
 ## LiDAR code language performance (CPU)
 
@@ -16,8 +15,6 @@ This project will cover the following contents.
 | **RaspberryPi/Ubuntu20.04** | 2.51    | 5.44       |
 
 LiDAR max rotation = 8.3~8.4rps (H/W specific)
-
----
 
 ## Command note
 ```bash
@@ -48,3 +45,4 @@ sudo netplan apply
 - [YDLIDAR](https://github.com/YDLIDAR)
 - [RealSense Doc](https://dev.intelrealsense.com/docs/docs-get-started)
 - [pyrealsense2 setup for RPi](https://github.com/IntelRealSense/librealsense/issues/12462)
+- [laser_scan_matcher](https://github.com/AlexKaravaev/ros2_laser_scan_matcher)

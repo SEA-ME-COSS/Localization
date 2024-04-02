@@ -13,10 +13,10 @@ class CameraPublisher(Node):
     def __init__(self):
         super().__init__('camera_pub_node')
         self.publisher_ = self.create_publisher(Image, 'image', 10)
-        self.timer_ = self.create_timer(0.1, self.callback)  # [s]
+        self.timer_ = self.create_timer(0.2, self.callback)  # [s]
 
         self.config = rs.config()
-        self.config.enable_stream(rs.stream.color, 320, 240, rs.format.bgr8, 30)
+        self.config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
 
         self.pipeline = rs.pipeline()
         self.pipeline.start(self.config)
@@ -32,6 +32,7 @@ class CameraPublisher(Node):
             return
 
         color_image = np.asanyarray(color_frame.get_data())
+        color_image = color_image[:, 320:640]
         self.msg = self.bridge.cv2_to_imgmsg(color_image, encoding="bgr8")
 
         self.publisher_.publish(self.msg)

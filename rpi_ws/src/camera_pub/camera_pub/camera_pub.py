@@ -36,7 +36,7 @@ class CameraPublisher(Node):
         self.msg = self.bridge.cv2_to_imgmsg(color_image, encoding="bgr8")
 
         self.publisher_.publish(self.msg)
-        self.get_logger().info('')
+        # self.get_logger().info('')
 
 
     def __del__(self):

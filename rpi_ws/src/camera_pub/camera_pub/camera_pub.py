@@ -32,7 +32,7 @@ class CameraPublisher(Node):
             return
 
         color_image = np.asanyarray(color_frame.get_data())
-        color_image = color_image[:, 320:640]
+        color_image = color_image[:, 300:640]
         self.msg = self.bridge.cv2_to_imgmsg(color_image, encoding="bgr8")
 
         self.publisher_.publish(self.msg)

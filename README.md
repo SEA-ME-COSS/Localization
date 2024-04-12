@@ -39,6 +39,12 @@ realsense-viewer
 # configure WLAN connection in RPi
 sudo nano /etc/netplan/50-cloud-init.yaml
 sudo netplan apply
+
+# Bring the 'can0' interface up and set its bitrate to 500,000 bits per second
+sudo ip link set can0 up type can bitrate 500000
+
+# Set the transmit queue length of 'can0' to 65,536 (maximum value)
+sudo ifconfig can0 txqueuelen 65536
 ```
 
 ## ROS2 msg type

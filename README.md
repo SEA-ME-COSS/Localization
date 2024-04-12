@@ -47,6 +47,9 @@ sudo ip link set can0 up type can bitrate 500000
 sudo ifconfig can0 txqueuelen 65536
 
 ssh team5@192.168.0.127
+
+cansend can0 000#11.22.33.44
+candump can0
 ```
 
 ## ROS2 msg type

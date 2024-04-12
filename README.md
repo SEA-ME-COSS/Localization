@@ -45,6 +45,8 @@ sudo ip link set can0 up type can bitrate 500000
 
 # Set the transmit queue length of 'can0' to 65,536 (maximum value)
 sudo ifconfig can0 txqueuelen 65536
+
+ssh team5@192.168.0.127
 ```
 
 ## ROS2 msg type

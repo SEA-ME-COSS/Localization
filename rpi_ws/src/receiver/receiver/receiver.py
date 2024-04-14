@@ -19,7 +19,7 @@ class TeleopSubscriber(Node):
         steering = control_msg.angular.z
         throttle = control_msg.linear.x
 
-        msg = can.Message(arbitration_id=0, data=[(steering < 0), int(abs(steering)), int((steering % 1) * 100), 0])
+        msg = can.Message(arbitration_id=0, data=[(steering > 0), int(abs(steering)), int((steering % 1) * 100), 0])
         self.bus.send(msg)
 
         msg = can.Message(arbitration_id=1, data=[(throttle < 0), int(abs(throttle)), int((throttle % 1) * 100), 0])

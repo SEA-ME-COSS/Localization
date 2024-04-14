@@ -81,7 +81,7 @@ class LidarPublisher : public rclcpp::Node
         msg.ranges.resize(point_size);
         for(size_t i = 0; i < point_size; i++)
         {
-          msg.ranges[i] = scan.points[(point_size + (point_size - i - 1 - 10)) % point_size].range;  // Change Orientation: CCW
+          msg.ranges[i] = scan.points[(point_size + (point_size - i - 1 - 50)) % point_size].range;  // Change Orientation: CCW
         }
 
         publisher_->publish(msg);

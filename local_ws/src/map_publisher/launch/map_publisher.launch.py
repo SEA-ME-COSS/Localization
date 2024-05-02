@@ -18,7 +18,7 @@ def generate_launch_description():
     start_lifecycle_manager_cmd = launch_ros.actions.Node(
             package='nav2_lifecycle_manager',
             executable='lifecycle_manager',
-            name='lifecycle_manager',
+            name='map_lifecycle_manager',  # unique name
             output='screen',
             emulate_tty=True,
             parameters=[{'use_sim_time': use_sim_time},

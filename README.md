@@ -56,6 +56,17 @@ slam config file is in
 /opt/ros/foxy/share/slam_toolbox/config
 to run slam toolbox
 ros2 launch slam_toolbox online_async_launch.py
+# ROS Parameters
+odom_frame: odom
+map_frame: map
+base_frame: base_footprint
+scan_topic: /scan
+mode: mapping
+# Save map in rviz
+Panels -> Add New Panel -> SlamToolboxPlugin -> Save Map
+
+ros map editor
+python3 MapEditor.py slam
 ```
 
 ## ROS2 msg type
@@ -68,3 +79,4 @@ ros2 launch slam_toolbox online_async_launch.py
 - [RealSense Doc](https://dev.intelrealsense.com/docs/docs-get-started)
 - [pyrealsense2 setup for RPi](https://github.com/IntelRealSense/librealsense/issues/12462)
 - [laser_scan_matcher](https://github.com/AlexKaravaev/ros2_laser_scan_matcher)
+- [map editor](https://github.com/TheOnceAndFutureSmalltalker/ros_map_editor)

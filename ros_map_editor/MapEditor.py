@@ -159,7 +159,7 @@ class MapEditor(QtWidgets.QMainWindow):
 
         # =============== Input yaml file =============== #
         self.occupied_thresh = 0.65  # probability its occupied
-        self.free_thresh = 0.25      # probability its uncertain or occupied
+        self.free_thresh = 0.01      # probability its uncertain or occupied
         self.resolution = 0.05       # in meters per cell
         self.origin_x = -0.136
         self.origin_y = -0.303

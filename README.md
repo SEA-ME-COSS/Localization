@@ -50,6 +50,12 @@ ssh team5@192.168.0.127
 
 cansend can0 000#11.22.33.44
 candump can0
+
+
+slam config file is in
+/opt/ros/foxy/share/slam_toolbox/config
+to run slam toolbox
+ros2 launch slam_toolbox online_async_launch.py
 ```
 
 ## ROS2 msg type

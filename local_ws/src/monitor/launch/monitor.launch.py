@@ -9,7 +9,7 @@ import launch_ros.actions
 
 def generate_launch_description():
     package_name = "monitor"
-    map_file_name = "map.yaml"
+    map_file_name = "slam.yaml"
 
     pkg_path = os.path.join(get_package_share_directory(package_name))
 
@@ -17,16 +17,16 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
-            Node(
-                package='tf2_ros',
-                executable='static_transform_publisher',
-                arguments = ['0', '0', '0', '0', '0', '0', 'map', 'odom']
-            ),
-            Node(
-                package='monitor',
-                executable='rviz_odom',
-                output='screen',
-            ),
+            # Node(
+            #     package='tf2_ros',
+            #     executable='static_transform_publisher',
+            #     arguments = ['0', '0', '0', '0', '0', '0', 'map', 'odom']
+            # ),
+            # Node(
+            #     package='monitor',
+            #     executable='rviz_odom',
+            #     output='screen',
+            # ),
             Node(
                 package='nav2_map_server',
                 executable='map_server',

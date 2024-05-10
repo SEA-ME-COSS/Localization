@@ -67,6 +67,8 @@ Panels -> Add New Panel -> SlamToolboxPlugin -> Save Map
 
 ros map editor
 python3 MapEditor.py slam
+
+ros2 run nav2_amcl amcl
 ```
 
 ## ROS2 msg type

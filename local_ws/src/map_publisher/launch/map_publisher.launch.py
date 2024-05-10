@@ -9,7 +9,7 @@ def generate_launch_description():
         package='nav2_map_server',
         executable='map_server',
         output='screen',
-        parameters=[{'yaml_filename': "/home/ha/Desktop/Localization/local_ws/src/map_publisher/map/map.yaml"}])
+        parameters=[{'yaml_filename': "/home/ha/Desktop/Localization/local_ws/src/map_publisher/map/slam.yaml"}])
 
     lifecycle_nodes = ['map_server']
     use_sim_time = True

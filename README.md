@@ -31,7 +31,7 @@ pw = ' '
 
 # launch slam toolbox
 cd /opt/ros/foxy/share/slam_toolbox/config
-ros2 launch slam_toolbox online_async_launch.py
+ros2 launch slam_toolbox localization_launch.py
 
 # check camera connection
 realsense-viewer
@@ -50,28 +50,6 @@ ssh team5@192.168.0.127
 
 cansend can0 000#11.22.33.44
 candump can0
-
-
-slam config file is in
-/opt/ros/foxy/share/slam_toolbox/config
-to run slam toolbox
-ros2 launch slam_toolbox online_async_launch.py
-
-# ROS Parameters
-odom_frame: odom
-map_frame: map
-base_frame: base_footprint
-scan_topic: /scan
-mode: mapping
-
-# Save map in rviz
-Panels -> Add New Panel -> SlamToolboxPlugin -> Save Map
-
-ros map editor
-python3 MapEditor.py slam
-
-ros2 run nav2_amcl amcl
-ros2 run nav2_util lifecycle_bringup amcl
 ```
 
 ## ROS2 msg type

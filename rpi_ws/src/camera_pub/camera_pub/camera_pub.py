@@ -12,30 +12,37 @@ from cv_bridge import CvBridge
 class CameraPublisher(Node):
     def __init__(self):
         super().__init__('camera_pub_node')
-        self.publisher_ = self.create_publisher(Image, 'image', 10)
+        self.publisher1_ = self.create_publisher(Image, 'image_RGB', 10)    # Output1: RGB
+        self.publisher2_ = self.create_publisher(Image, 'image_Depth', 10)  # Output2: Depth
         self.timer_ = self.create_timer(0.2, self.callback)  # [s]
 
         self.config = rs.config()
-        self.config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
+        self.config.enable_stream(rs.stream.color, 320, 240, rs.format.bgr8, 30)
+        self.config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
 
         self.pipeline = rs.pipeline()
         self.pipeline.start(self.config)
 
         self.bridge = CvBridge()
-        self.msg = Image()
+        self.msg_RGB = Image()
+        self.msg_Depth = Image()
 
 
     def callback(self):
         frames = self.pipeline.wait_for_frames()
         color_frame = frames.get_color_frame()
-        if not color_frame:
+        depth_frame = frames.get_depth_frame()
+        if not depth_frame or not color_frame:
             return
 
         color_image = np.asanyarray(color_frame.get_data())
-        color_image = color_image[:, 300:640]
-        self.msg = self.bridge.cv2_to_imgmsg(color_image, encoding="bgr8")
+        depth_image = np.asanyarray(depth_frame.get_data())[85:-90, 100:-135]  # Trim edge [v, h]
 
-        self.publisher_.publish(self.msg)
+        self.msg_RGB = self.bridge.cv2_to_imgmsg(color_image, encoding="bgr8")
+        self.msg_Depth = self.bridge.cv2_to_imgmsg(depth_image, encoding="16UC1")
+
+        self.publisher1_.publish(self.msg_RGB)
+        self.publisher2_.publish(self.msg_Depth)
         # self.get_logger().info('')
 
 

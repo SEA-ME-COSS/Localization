@@ -50,6 +50,8 @@ ssh team5@192.168.0.127
 
 cansend can0 000#11.22.33.44
 candump can0
+
+pip install transforms3d
 ```
 
 ## ROS2 msg type

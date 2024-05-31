@@ -59,10 +59,13 @@ class SimulationReceiver(Node):
         if yaw_degrees < 0:
             yaw_degrees += 360
 
-        msg = can.Message(arbitration_id=2, data=[int(abs(x_pos)), int((x_pos % 1) * 100), int(abs(y_pos)), int((y_pos % 1) * 100)])
+        msg = can.Message(arbitration_id=2, data=[(x_pos < 0), int(abs(x_pos)), int((x_pos % 1) * 100), 0])
         self.bus.send(msg)
 
-        msg = can.Message(arbitration_id=3, data=[int(abs(yaw_degrees)), int((yaw_degrees % 1) * 100), 0, 0])
+        msg = can.Message(arbitration_id=3, data=[(y_pos < 0), int(abs(y_pos)), int((y_pos % 1) * 100), 0])
+        self.bus.send(msg)
+
+        msg = can.Message(arbitration_id=4, data=[int(abs(yaw_degrees)), int((yaw_degrees % 1) * 100), 0, 0])
         self.bus.send(msg)
 
         # self.get_logger().info('')

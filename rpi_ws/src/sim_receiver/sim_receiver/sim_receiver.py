@@ -56,9 +56,6 @@ class SimulationReceiver(Node):
         roll, pitch, yaw = transforms3d.euler.quat2euler(orientation_list)
         yaw_degrees = math.degrees(yaw)
 
-        if yaw_degrees < 0:
-            yaw_degrees += 360
-
         print(yaw_degrees)
 
         msg = can.Message(arbitration_id=2, data=[(x_pos < 0), int(abs(x_pos)), int((abs(x_pos) % 1) * 100), 0])

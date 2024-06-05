@@ -56,15 +56,13 @@ class SimulationReceiver(Node):
         roll, pitch, yaw = transforms3d.euler.quat2euler(orientation_list)
         yaw_degrees = math.degrees(yaw)
 
-        print(yaw_degrees)
-
         msg = can.Message(arbitration_id=2, data=[(x_pos < 0), int(abs(x_pos)), int((abs(x_pos) % 1) * 100), 0])
         self.bus.send(msg)
 
         msg = can.Message(arbitration_id=3, data=[(y_pos < 0), int(abs(y_pos)), int((abs(y_pos) % 1) * 100), 0])
         self.bus.send(msg)
 
-        msg = can.Message(arbitration_id=4, data=[int(abs(yaw_degrees)), int((abs(yaw_degrees) % 1) * 100), 0, 0])
+        msg = can.Message(arbitration_id=4, data=[(yaw_degrees < 0), int(abs(yaw_degrees)), 0, 0])
         self.bus.send(msg)
 
         # self.get_logger().info('')

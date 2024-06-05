@@ -49,10 +49,10 @@ class SimulationReceiver(Node):
         x_pos = odom.pose.pose.position.x
         y_pos = odom.pose.pose.position.y
 
-        orientation_list = [odom.pose.pose.orientation.x,
+        orientation_list = [odom.pose.pose.orientation.w,
+                            odom.pose.pose.orientation.x, 
                             odom.pose.pose.orientation.y, 
-                            odom.pose.pose.orientation.z, 
-                            odom.pose.pose.orientation.w]
+                            odom.pose.pose.orientation.z]
         roll, pitch, yaw = transforms3d.euler.quat2euler(orientation_list)
         yaw_degrees = math.degrees(yaw)
 

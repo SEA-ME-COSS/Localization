@@ -11,8 +11,8 @@ class HeadunitStart(Node):
         super().__init__('headunit_start_node')
         self.publisher_ = self.create_publisher(Int8, '/headunit/start', 10)
 
-        self.msg = Int8(0)
-        self.publisher_.publish(self.msg)
+        # self.msg = Int8(0)
+        # self.publisher_.publish(self.msg)
         # self.get_logger().info('')
 
 

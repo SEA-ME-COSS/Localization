@@ -40,8 +40,8 @@ private:
     double roll, pitch, yaw;
     m.getRPY(roll, pitch, yaw);  // [rad]
 
-    position.pose.pose.position.x = (msg->pose.pose.position.x * 100 + 33) - 9.5 * cos(yaw);  // [cm]
-    position.pose.pose.position.y = (msg->pose.pose.position.y * 100 + 50) - 9.5 * sin(yaw);  // [cm]
+    position.pose.pose.position.x = msg->pose.pose.position.x - 0.095 * cos(yaw);  // [m]
+    position.pose.pose.position.y = msg->pose.pose.position.y - 0.095 * sin(yaw);  // [m]
 
     /*==================================================*/
 

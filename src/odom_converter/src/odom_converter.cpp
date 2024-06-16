@@ -12,7 +12,7 @@ class OdomConverter : public rclcpp::Node
 {
 public:
   OdomConverter()
-  : Node("odom_converter")
+  : Node("odom_converter_node")
   {
     subscription_ = this->create_subscription<nav_msgs::msg::Odometry>(
       "/odom", 10, std::bind(&OdomConverter::topic_callback, this, _1));

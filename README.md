@@ -1,6 +1,6 @@
 # About
 
-[DIAGRAM HERE]
+<img src=/images/Architecture_Localization.png alt="Architecture_Localization" width="100%" height="100%"/>
 
 This repository is for the **Localization** part of the [Autonomous-Driving-System](https://github.com/SEA-ME-COSS/Autonomous-Driving-System) project. The included ROS2 packages generate vehicle odometry from LIDAR scan data obtained from [ECU-Core](https://github.com/SEA-ME-COSS/ECU-Core).
 
